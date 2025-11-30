@@ -1,29 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style_origem.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="../style_origem.css">
-</head>
-
-<body>
-  <nav class="card">
-    <div class="card-header text-center fs-1">
-      A3 de Estrutuas Matemáticas
-    </div>
-    <div class="card-body">
-      <h5 class="card-title fs-4">Origens do Diagrama de Venn, sua Importância e Referências</h5>
-      <p class="card-text fs-5">Um diagrama de Venn é um tipo de diagrama gráfico feito de círculos sobrepostos. Clique
-        abaixo e descubra mais obre sua origem</p>
-      <p></p>
-
-    </div>
-
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <body>
+    <nav class="card">
+      <div class="card-header text-center fs-1">
+        A3 de Estrutuas Matemáticas
+      </div>
+      <div class="card-body">
+        <h5 class="card-title fs-4">
+          Origens do Diagrama de Venn, sua Importância e Referências
+        </h5>
+        <p class="card-text fs-5">
+          Um diagrama de Venn é um tipo de diagrama gráfico feito de círculos
+          sobrepostos. Clique abaixo e retorne para a página principal
+        </p>
+        <a href="/index.html" class="btn btn-primary">Página Principal</a>
+      </div>
+    </nav>
+    <div
+      id="carouselExampleAutoplaying"
+      class="carousel slide mt-5"
+      data-bs-ride="carousel"
+    >
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- Slide 1: Título -->
@@ -31,16 +41,23 @@
             <div class="container-fluid h-100 p-5 d-flex align-items-center">
               <div class="row w-100 align-items-center">
                 <div class="col-8">
-                  <h1 class="display-1 gradient-text">O que é o Diagrama de Venn?</h1>
-                  <p class="h4 text-secondary mb-4">Origens, usos e a importância das Operações de Conjuntos</p>
+                  <h1 class="display-1 gradient-text">
+                    O que é o Diagrama de Venn?
+                  </h1>
+                  <p class="h4 text-secondary mb-4">
+                    Origens, usos e a importância das Operações de Conjuntos
+                  </p>
                   <div class="custom-divider"></div>
                 </div>
                 <div class="col-4">
                   <div class="image-wrapper">
                     <!-- Substitua o SRC pela sua imagem do Diagrama de Venn (Colorido) -->
-                    <img class="generated-image"
-                      src="https://placehold.co/450x450/4F46E5/FFFFFF?text=Slide+1%0A(Diagrama+Colorido)"
-                      alt="Diagrama de Venn colorido e moderno" style="object-fit: contain;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide1.png"
+                      alt="Diagrama de Venn colorido e moderno"
+                      style="object-fit: contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -50,23 +67,33 @@
         <div class="carousel-item">
           <!-- Slide 2: Conceito -->
           <div class="slide-container" id="slide2">
-            <div class="container-fluid h-100 p-5 d-flex flex-column justify-content-center">
+            <div
+              class="container-fluid h-100 p-5 d-flex flex-column justify-content-center"
+            >
               <h2 class="slide-title mb-4 pb-3">O que é o Diagrama de Venn</h2>
               <div class="row align-items-center flex-grow-1">
                 <div class="col-md-6 d-flex align-items-center">
                   <div>
-                    <p class="lead">O Diagrama de Venn é a forma visual mais eficaz para representar
-                      <strong>Conjuntos</strong> e as relações entre seus <strong>Elementos</strong>.</p>
-                    <p class="lead">Ele utiliza círculos sobrepostos para ilustrar a lógica de classificação, comparação
-                      e pertencimento entre diferentes grupos de dados.</p>
+                    <p class="lead">
+                      O Diagrama de Venn é a forma visual mais eficaz para
+                      representar <strong>Conjuntos</strong> e as relações entre
+                      seus <strong>Elementos</strong>.
+                    </p>
+                    <p class="lead">
+                      Ele utiliza círculos sobrepostos para ilustrar a lógica de
+                      classificação, comparação e pertencimento entre diferentes
+                      grupos de dados.
+                    </p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="image-wrapper">
-                    <!-- Substitua o SRC pela sua imagem de Diagrama de Venn (Conceito Simples) -->
-                    <img class="generated-image"
-                      src="https://placehold.co/450x450/4F46E5/FFFFFF?text=Slide+2%0A(Conceito+Simples)"
-                      alt="Diagrama simples com 2 conjuntos e legendas A e B" style="object-fit: contain;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide2.png"
+                      alt="Diagrama simples com 2 conjuntos e legendas A e B"
+                      style="object-fit: contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -76,28 +103,49 @@
         <div class="carousel-item">
           <!-- Slide 3: Operações com Conjuntos -->
           <div class="slide-container" id="slide3">
-            <div class="container-fluid h-100 p-5 d-flex flex-column justify-content-center">
+            <div
+              class="container-fluid h-100 p-5 d-flex flex-column justify-content-center"
+            >
               <h2 class="slide-title mb-4 pb-3">Operações com Conjuntos</h2>
               <div class="row align-items-center flex-grow-1">
                 <div class="col-md-6 d-flex align-items-center">
                   <ul class="custom-list">
-                    <li><span class="text-primary fw-bold">Interseção</span> (<span class="symbol">A ∩ B</span>):
-                      Elementos comuns aos dois conjuntos.</li>
-                    <li><span class="text-primary fw-bold">União</span> (<span class="symbol">A ∪ B</span>): Junção de
-                      todos os elementos de <strong>A</strong> e <strong>B</strong>.</li>
-                    <li><span class="text-primary fw-bold">Diferença</span> (<span class="symbol">A \ B</span> ou <span
-                        class="symbol">A - B</span>): Elementos que estão em <strong>A</strong>, mas
-                      <strong>não</strong> em <strong>B</strong>.</li>
-                    <li><span class="text-primary fw-bold">Complemento</span> (<span class="symbol">Aᶜ</span>): Tudo o
-                      que está fora do conjunto <strong>A</strong>.</li>
+                    <li>
+                      <span class="text-primary fw-bold">Interseção</span>
+                      (<span class="symbol">A ∩ B</span>): Elementos comuns aos
+                      dois conjuntos.
+                    </li>
+                    <li>
+                      <span class="text-primary fw-bold">União</span> (<span
+                        class="symbol"
+                        >A ∪ B</span
+                      >): Junção de todos os elementos de <strong>A</strong> e
+                      <strong>B</strong>.
+                    </li>
+                    <li>
+                      <span class="text-primary fw-bold">Diferença</span> (<span
+                        class="symbol"
+                        >A \ B</span
+                      >
+                      ou <span class="symbol">A - B</span>): Elementos que estão
+                      em <strong>A</strong>, mas <strong>não</strong> em
+                      <strong>B</strong>.
+                    </li>
+                    <li>
+                      <span class="text-primary fw-bold">Complemento</span>
+                      (<span class="symbol">Aᶜ</span>): Tudo o que está fora do
+                      conjunto <strong>A</strong>.
+                    </li>
                   </ul>
                 </div>
                 <div class="col-md-6">
                   <div class="image-wrapper">
-                    <!-- Substitua o SRC pela sua imagem de Diagrama de Venn (Operações Visuais) -->
-                    <img class="generated-image"
-                      src="https://placehold.co/450x450/4F46E5/FFFFFF?text=Slide+3%0A(Operações+Visuais)"
-                      alt="Diagrama simples com duas bolas A e B coloridas" style="object-fit: contain;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide3.png"
+                      alt="Diagrama simples com duas bolas A e B coloridas"
+                      style="object-fit: contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -107,23 +155,35 @@
         <div class="carousel-item">
           <!-- Slide 4: Origem (Layout Redondo) -->
           <div class="slide-container" id="slide4">
-            <div class="container-fluid h-100 p-5 d-flex flex-column justify-content-center rounded-image-layout">
+            <div
+              class="container-fluid h-100 p-5 d-flex flex-column justify-content-center rounded-image-layout"
+            >
               <h2 class="slide-title mb-4 pb-3">Origem</h2>
               <div class="row align-items-center flex-grow-1">
                 <div class="col-md-6 d-flex align-items-center">
                   <div>
-                    <p class="lead">O diagrama foi introduzido pelo lógico e filósofo <strong>John Venn</strong>, em
-                      1880, no artigo <em>"On the Diagrammatic and Mechanical Representation of Propositions e
-                        Reasonings"</em>.</p>
-                    <p class="lead">Ele criou uma forma universal para representar proposições lógicas.</p>
+                    <p class="lead">
+                      O diagrama foi introduzido pelo lógico e filósofo
+                      <strong>John Venn</strong>, em 1880, no artigo
+                      <em
+                        >"On the Diagrammatic and Mechanical Representation of
+                        Propositions e Reasonings"</em
+                      >.
+                    </p>
+                    <p class="lead">
+                      Ele criou uma forma universal para representar proposições
+                      lógicas.
+                    </p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="image-wrapper">
-                    <!-- Substitua o SRC pela sua imagem de Retrato de John Venn -->
-                    <img class="generated-image"
-                      src="https://placehold.co/400x400/4F46E5/FFFFFF?text=Slide+4%0A(Retrato+John+Venn)"
-                      alt="Retrato estilizado de John Venn" style="object-fit: cover;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide4.png"
+                      alt="Retrato estilizado de John Venn"
+                      style="object-fit: cover"
+                    />
                   </div>
                 </div>
               </div>
@@ -133,23 +193,33 @@
         <div class="carousel-item">
           <!-- Slide 5: Influências anteriores -->
           <div class="slide-container" id="slide5">
-            <div class="container-fluid h-100 p-5 d-flex flex-column justify-content-center">
+            <div
+              class="container-fluid h-100 p-5 d-flex flex-column justify-content-center"
+            >
               <h2 class="slide-title mb-4 pb-3">Influências anteriores</h2>
               <div class="row align-items-center flex-grow-1">
                 <div class="col-md-6 d-flex align-items-center">
                   <div>
-                    <p class="lead">Embora o nome seja de Venn, ideias semelhantes já apareciam antes, especialmente nos
-                      desenhos do matemático <strong>Leonhard Euler</strong>, no século XVIII (os Diagramas de Euler).
+                    <p class="lead">
+                      Embora o nome seja de Venn, ideias semelhantes já
+                      apareciam antes, especialmente nos desenhos do matemático
+                      <strong>Leonhard Euler</strong>, no século XVIII (os
+                      Diagramas de Euler).
                     </p>
-                    <p class="lead">Venn expandiu e sistematizou o método para qualquer número de conjuntos.</p>
+                    <p class="lead">
+                      Venn expandiu e sistematizou o método para qualquer número
+                      de conjuntos.
+                    </p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="image-wrapper">
-                    <!-- Substitua o SRC pela sua imagem de Diagrama de Euler -->
-                    <img class="generated-image"
-                      src="https://placehold.co/450x450/4F46E5/FFFFFF?text=Slide+5%0A(Diagrama+de+Euler)"
-                      alt="Diagrama de Euler (Imagem estática)" style="object-fit: contain;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide5.png"
+                      alt="Diagrama de Euler (Imagem estática)"
+                      style="object-fit: contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -159,27 +229,43 @@
         <div class="carousel-item">
           <!-- Slide 6: Por que é importante -->
           <div class="slide-container" id="slide6">
-            <div class="container-fluid h-100 p-5 d-flex flex-column justify-content-center">
+            <div
+              class="container-fluid h-100 p-5 d-flex flex-column justify-content-center"
+            >
               <h2 class="slide-title mb-4 pb-3">Por que é importante</h2>
               <div class="row align-items-center flex-grow-1">
                 <div class="col-md-6 d-flex align-items-center">
                   <div>
-                    <p class="lead">O Diagrama de Venn é indispensável porque:</p>
+                    <p class="lead">
+                      O Diagrama de Venn é indispensável porque:
+                    </p>
                     <ul class="custom-list">
-                      <li><strong>Simplifica a Lógica:</strong> Transforma relações abstratas em figuras concretas.</li>
-                      <li><strong>Visualiza Operações:</strong> Torna a Interseção (<span class="symbol">∩</span>),
-                        União (<span class="symbol">∪</span>) e Diferença evidentes.</li>
-                      <li><strong>Aplicações Universais:</strong> Base para ciência de dados, probabilidade e lógica.
+                      <li>
+                        <strong>Simplifica a Lógica:</strong> Transforma
+                        relações abstratas em figuras concretas.
+                      </li>
+                      <li>
+                        <strong>Visualiza Operações:</strong> Torna a Interseção
+                        (<span class="symbol">∩</span>), União (<span
+                          class="symbol"
+                          >∪</span
+                        >) e Diferença evidentes.
+                      </li>
+                      <li>
+                        <strong>Aplicações Universais:</strong> Base para
+                        ciência de dados, probabilidade e lógica.
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="image-wrapper">
-                    <!-- Substitua o SRC pela sua imagem de Diagrama complexo (Aplicações Lógicas) -->
-                    <img class="generated-image"
-                      src="https://placehold.co/450x450/4F46E5/FFFFFF?text=Slide+6%0A(Aplicações+Lógicas)"
-                      alt="Diagrama complexo de 4 conjuntos" style="object-fit: contain;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide6.png"
+                      alt="Diagrama complexo de 4 conjuntos"
+                      style="object-fit: contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -189,27 +275,41 @@
         <div class="carousel-item">
           <!-- Slide 7: Exemplos de uso no dia a dia -->
           <div class="slide-container" id="slide7">
-            <div class="container-fluid h-100 p-5 d-flex flex-column justify-content-center">
-              <h2 class="slide-title mb-4 pb-3">Exemplos de uso no dia a dia</h2>
+            <div
+              class="container-fluid h-100 p-5 d-flex flex-column justify-content-center"
+            >
+              <h2 class="slide-title mb-4 pb-3">
+                Exemplos de uso no dia a dia
+              </h2>
               <div class="row align-items-center flex-grow-1">
                 <div class="col-md-6 d-flex align-items-center">
                   <div>
                     <p class="lead">Você encontra a lógica de conjuntos em:</p>
                     <ul class="custom-list">
-                      <li><strong>Pesquisa de Mercado:</strong> Consumidores de "Produto A" <span
-                          class="symbol">∩</span> "Produto B".</li>
-                      <li><strong>Gestão de Projetos:</strong> Ponto de <strong>Interseção</strong> entre habilidades e
-                        necessidades.</li>
-                      <li><strong>Ciência de Dados:</strong> Filtrar dados de múltiplas categorias.</li>
+                      <li>
+                        <strong>Pesquisa de Mercado:</strong> Consumidores de
+                        "Produto A" <span class="symbol">∩</span> "Produto B".
+                      </li>
+                      <li>
+                        <strong>Gestão de Projetos:</strong> Ponto de
+                        <strong>Interseção</strong> entre habilidades e
+                        necessidades.
+                      </li>
+                      <li>
+                        <strong>Ciência de Dados:</strong> Filtrar dados de
+                        múltiplas categorias.
+                      </li>
                     </ul>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="image-wrapper">
-                    <!-- Substitua o SRC pela sua imagem de Exemplo Prático (Mercado) -->
-                    <img class="generated-image"
-                      src="https://placehold.co/450x450/4F46E5/FFFFFF?text=Slide+7%0A(Exemplo+de+Mercado)"
-                      alt="Exemplo prático de diagrama de Venn em um ambiente de dados" style="object-fit: contain;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide7.png"
+                      alt="Exemplo prático de diagrama de Venn em um ambiente de dados"
+                      style="object-fit: contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -219,114 +319,107 @@
         <div class="carousel-item">
           <!-- Slide 8: Referências -->
           <div class="slide-container" id="slide8">
-            <div class="container-fluid h-100 p-5 d-flex flex-column justify-content-center">
+            <div
+              class="container-fluid h-100 p-5 d-flex flex-column justify-content-center"
+            >
               <h2 class="slide-title mb-4 pb-3">Referências</h2>
               <div class="row align-items-center flex-grow-1">
                 <div class="col-md-6 d-flex align-items-center">
                   <ul class="list-unstyled references-list">
-                    <li class="h5 mb-3">Venn, John. <em>On the Diagrammatic...</em> (1880).</li>
-                    <li class="h5 mb-3">Stanford Encyclopedia of Philosophy.</li>
-                    <li class="h5 mb-3">University of Cambridge — John Venn Archive.</li>
-                    <li class="h5 mb-3">Nelsen, R. (2008). <em>Proofs Without Words II</em>.</li>
-                    <li class="h5 mb-3">Falmagne, J.-C. & Doignon, J.-P. (2011). <em>Learning Spaces</em>.</li>
+                    <li class="h5 mb-3">
+                      Venn, John. <em>On the Diagrammatic...</em> (1880).
+                    </li>
+                    <li class="h5 mb-3">
+                      Stanford Encyclopedia of Philosophy.
+                    </li>
+                    <li class="h5 mb-3">
+                      University of Cambridge — John Venn Archive.
+                    </li>
+                    <li class="h5 mb-3">
+                      Nelsen, R. (2008). <em>Proofs Without Words II</em>.
+                    </li>
+                    <li class="h5 mb-3">
+                      Falmagne, J.-C. & Doignon, J.-P. (2011).
+                      <em>Learning Spaces</em>.
+                    </li>
                   </ul>
                 </div>
                 <div class="col-md-6">
                   <div class="image-wrapper">
-                    <!-- Substitua o SRC pela sua imagem de Fundo de Referências -->
-                    <img class="generated-image"
-                      src="https://placehold.co/450x450/4F46E5/FFFFFF?text=Slide+8%0A(Ícones+Referências)"
-                      alt="Fundo minimalista com livros e ícones de referência" style="object-fit: contain;">
+                    <img
+                      class="generated-image"
+                      src="../images/slide8.png"
+                      alt="Fundo minimalista com livros e ícones de referência"
+                      style="object-fit: contain"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-        </div> <!-- Fim do slides-wrapper -->
+        </div>
+        <!-- Fim do slides-wrapper -->
       </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-    </div>
 
-    Origens do Diagrama de Venn
+    Origens do Diagrama de Venn O conceito foi desenvolvido pelo lógico e
+    filósofo britânico John Venn no final do século XIX. Em 1880, ele publicou o
+    artigo “On the Diagrammatic and Mechanical Representation of Propositions
+    and Reasonings” na revista Philosophical Magazine, onde apresentou
+    formalmente o método. Embora existam representações similares anteriores —
+    como os diagramas de Euler (1700s) — o mérito de Venn foi criar um sistema
+    mais geral, capaz de representar todas as possíveis relações entre
+    conjuntos, independentemente do número de categorias envolvidas. A partir do
+    século XX, com o avanço da teoria dos conjuntos e da lógica matemática, os
+    diagramas de Venn se consolidaram como uma ferramenta fundamental no ensino
+    e na pesquisa. Importância dos Diagramas de Venn Os diagramas de Venn são
+    importantes porque: 1. Facilitam a visualização de relações lógicas Eles
+    permitem ver rapidamente o que pertence a um conjunto, a outro e às suas
+    interseções. Isso os torna especialmente úteis em matemática, estatística e
+    lógica. 2. Ajudam na resolução de problemas envolvendo conjuntos Questões de
+    probabilidade, contagem, classificação e dedução lógica podem ser resolvidas
+    de forma mais intuitiva usando diagramas. 3. Tornam conceitos abstratos mais
+    acessíveis No ensino básico e superior, ajudam alunos a compreender
+    operações como união, interseção, diferença e complemento. 4. São amplamente
+    usados em diversas áreas Além da matemática, aparecem em: Ciência da
+    computação (teoria de bancos de dados, estruturas de dados) Linguística
+    (conjuntos fonéticos, semânticos) Estatística e ciência de dados
+    (segmentação, classificação) Educação e comunicação visual (comparações
+    qualitativas) 5. Tornaram-se um ícone da representação de ideias Hoje, os
+    diagramas de Venn são usados inclusive na mídia, em empresas e em
+    apresentações, como forma clara de comparar dois ou mais elementos. Fontes /
+    Referências Venn, John. On the Diagrammatic and Mechanical Representation of
+    Propositions and Reasonings. Philosophical Magazine, 1880. Gardner, Martin.
+    Logic Machines and Diagrams. McGraw-Hill, 1958. Edwards, A. W. F. Cogwheels
+    of the Mind: The Story of Venn Diagrams. Johns Hopkins University Press,
+    2004. Grattan-Guinness, I. The Search for Mathematical Roots, 1870–1940.
+    Princeton University Press, 2000 (contextualiza o período lógico-matemático
+    em que Venn trabalhou). Euler, Leonhard. Lettres à une Princesse d'Allemagne
+    (1768) — onde surgem os diagramas de Euler, antecessores dos de Venn.
 
-    O conceito foi desenvolvido pelo lógico e filósofo britânico John Venn no final do século XIX.
-    Em 1880, ele publicou o artigo “On the Diagrammatic and Mechanical Representation of Propositions and Reasonings” na
-    revista Philosophical Magazine, onde apresentou formalmente o método.
-
-    Embora existam representações similares anteriores — como os diagramas de Euler (1700s) — o mérito de Venn foi criar
-    um sistema mais geral, capaz de representar todas as possíveis relações entre conjuntos, independentemente do número
-    de categorias envolvidas.
-
-    A partir do século XX, com o avanço da teoria dos conjuntos e da lógica matemática, os diagramas de Venn se
-    consolidaram como uma ferramenta fundamental no ensino e na pesquisa.
-
-    Importância dos Diagramas de Venn
-
-    Os diagramas de Venn são importantes porque:
-
-    1. Facilitam a visualização de relações lógicas
-
-    Eles permitem ver rapidamente o que pertence a um conjunto, a outro e às suas interseções. Isso os torna
-    especialmente úteis em matemática, estatística e lógica.
-
-    2. Ajudam na resolução de problemas envolvendo conjuntos
-
-    Questões de probabilidade, contagem, classificação e dedução lógica podem ser resolvidas de forma mais intuitiva
-    usando diagramas.
-
-    3. Tornam conceitos abstratos mais acessíveis
-
-    No ensino básico e superior, ajudam alunos a compreender operações como união, interseção, diferença e complemento.
-
-    4. São amplamente usados em diversas áreas
-
-    Além da matemática, aparecem em:
-
-    Ciência da computação (teoria de bancos de dados, estruturas de dados)
-
-    Linguística (conjuntos fonéticos, semânticos)
-
-    Estatística e ciência de dados (segmentação, classificação)
-
-    Educação e comunicação visual (comparações qualitativas)
-
-    5. Tornaram-se um ícone da representação de ideias
-
-    Hoje, os diagramas de Venn são usados inclusive na mídia, em empresas e em apresentações, como forma clara de
-    comparar dois ou mais elementos.
-
-    Fontes / Referências
-
-    Venn, John. On the Diagrammatic and Mechanical Representation of Propositions and Reasonings. Philosophical
-    Magazine, 1880.
-
-    Gardner, Martin. Logic Machines and Diagrams. McGraw-Hill, 1958.
-
-    Edwards, A. W. F. Cogwheels of the Mind: The Story of Venn Diagrams. Johns Hopkins University Press, 2004.
-
-    Grattan-Guinness, I. The Search for Mathematical Roots, 1870–1940. Princeton University Press, 2000 (contextualiza o
-    período lógico-matemático em que Venn trabalhou).
-
-    Euler, Leonhard. Lettres à une Princesse d'Allemagne (1768) — onde surgem os diagramas de Euler, antecessores dos de
-    Venn.
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"></script>
-</body>
-
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
