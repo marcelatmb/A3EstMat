@@ -1,35 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A3 de Estrutuas Matemáticas</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=], initial-scale=1.0" />
+    <title>Projeto uwu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bolhas.css" />
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"
+      type="module"
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
   </head>
   <body>
-    <nav class="card">
-      <div class="card-header text-center fs-1">
-        A3 de Estrutuas Matemáticas
+    <div class="frame">
+      <a href="https://exemplo.com" class="link-inteiro">
+      <div class="box blue">
+        <div class="content">
+          <p>
+            <br><br>
+            Clique aqui para DE FATO ENTRAR NO NOSSO PROJETO! Calculadora de Conjuntos,
+            Diagrama de Venn interativo e muito mais!!!!!! ESSA É A MELHOR PARTE, ENTRA LOGO VAI :D</p>
+            <dotlottie-wc
+              id="play_btn"
+              src="https://lottie.host/5273e240-d787-4e0e-a2db-1e8f2d18ac56/7eZ9vX8cv2.lottie"
+              style="width: 200px; height: 100px; display: inline-block"
+              speed="1.5"
+              loop
+              autoplay></dotlottie-wc>
+          </p>
+        </div>
       </div>
-      <div class="card-body">
-        <h5 class="card-title fs-4">Diagrama de Venn</h5>
-        <p class="card-text fs-5">
-          Um diagrama de Venn é um tipo de diagrama gráfico feito de círculos
-          sobrepostos. Clique abaixo e descubra mais obre sua origem
-        </p>
-        <a href="src/html/origem.html" class="btn btn-primary">origem</a>
-      </div>
-    </nav>
+      </a>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+      <a href="https://exemplo.com" class="link-inteiro">
+      <div class="box red">
+        <div class="content">
+          <p>
+            Aqui você vai encontrar slides explicativos sobre como funciona nosso lindo, bonito, incrível, cheiroso e PROVAVELMENTE FUNCIONAL projeto de Estruturas Matemáticas!!!! ENTRA LOGO PRA VER VAI
+          </p>
+          <dotlottie-wc
+            src="https://lottie.host/05033dff-8539-448c-bf84-f81aa2af67a9/5sPBpQ2Ant.lottie"
+            style="width: 200px; height: 200px; display: inline-block"
+            speed="0.5"
+            loop
+            autoplay
+          ></dotlottie-wc>
+        </div>
+      </div>
+      </a>
+
+
+      <a href="https://exemplo.com" class="link-inteiro">
+      <div class="box green">
+        <div class="content">
+          <p>
+            Aqui você vai encontrar slides explicativos muito menos interessantes sobre como NÃO funciona nosso projeto de Estruturas Matemáticas!!!! Ele explica mais sobre a lógica por trás do projeto e tal... MAS AINDA ASSIM É BOM DEMAIS, ENTRA AÍ
+          </p>
+          <dotlottie-wc
+            src="https://lottie.host/05033dff-8539-448c-bf84-f81aa2af67a9/5sPBpQ2Ant.lottie"
+            style="
+              width: 200px;
+              height: 200px;
+              display: inline-block;
+              transform: scaleX(-1);
+            "
+            speed="0.5"
+            loop
+            autoplay
+          ></dotlottie-wc>
+        </div>
+      </div>
+      </a>
+
+      
+    </div>
+    <div class="bubble-container">
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+      <div class="bubble b4"></div>
+      <div class="bubble b1"></div>
+    </div>
+    <div class="title">
+      <h1>   Bem Vindo ao nosso Projeto da Uc de Estruturas Matemáticas!   </h1>
+      <h3>Passe o mouse sobre o diagrama de Venn Para saber mais</h3>
+    </div>
+    <div class="footer">
+      <p>Créditos aos estudantes da Unifacs</p>
+      <p>uwu</p>
+    </div>
   </body>
+  <script>
+    const boxes = document.querySelectorAll(".box");
+
+    boxes.forEach((box) => {
+      box.addEventListener("mouseenter", () => {
+        box.classList.add("hovered");
+      });
+
+      box.addEventListener("mouseleave", () => {
+        box.classList.remove("hovered");
+      });
+    });
+
+    const contents = document.querySelectorAll(".content");
+
+    xerecas.forEach((content) => {
+      content.addEventListener("mouseenter", () => {
+        content.classList.add("hovered");
+      });
+
+      content.addEventListener("mouseleave", () => {
+        content.classList.remove("hovered");
+      });
+    });
+  </script>
 </html>
