@@ -8,10 +8,10 @@
   top: 10%;
   left: 19%;
   text-align: center;
-  color: hsl(327, 100%, 63%);
+  color: hsl(0, 0%, 100%);
   font-family: "Smooch Sans", sans-serif;
   font-size: 30px;
-  background: rgb(18, 1, 94) 10%;
+  background: rgb(13, 2, 59) 10%;
   border-radius: 45px;
   padding-left: 40px;
   padding-right: 40px;
@@ -26,7 +26,6 @@
   opacity: 100%;
   font-size: 30px;
   animation: color_uwu 3s infinite ease-in-out;
-  cursor: url("https://cur.cursors-4u.net/cursors/cur-9/cur817.ani"), auto;
 }
 
 .bubble-container {
@@ -122,41 +121,5 @@
   100% {
     transform: translateY(-400px) scale(1.05); /* adjust height as needed */
     opacity: 0;
-  }
-}
-
-@keyframes floating {
-  0% {
-    opacity: 0.3;
-  }
-  70% {
-    opacity: 0.8;
-    transform: scale(1.02) translateY(10px);
-  }
-  100% {
-    opacity: 0.3;
-    transform: translateY(4px);
-  }
-}
-
-@keyframes color_uwu {
-  0% {
-    color: #ff91d1;
-  }
-  30% {
-    color: #87fbff;
-    transform: scale(1.02) translateY(10px);
-  }
-  50% {
-    color: rgb(92, 255, 201);
-    transform: translateY(8px);
-  }
-  70% {
-    color: #ff91d1;
-    transform: translateY(6px);
-  }
-  100% {
-    color: #ff91d1;
-    transform: translateY(8px);
   }
 }
