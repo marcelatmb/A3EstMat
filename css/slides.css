@@ -1,0 +1,315 @@
+/* Variáveis CSS para cores e gradientes */
+:root {
+  /* Cores do gradiente dos slides */
+  --bs-blue-gradient: linear-gradient(90deg, #3b82f6, #a855f7);
+  --bs-blue-start: #3b82f6;
+  --bs-purple-end: #a855f7;
+  --bs-gray-300: #e2e8f0;
+
+  /* Cores escuras e de contraste do corpo da página */
+  --page-background: linear-gradient(
+    45deg,
+    rgb(1, 0, 39) 0%,
+    rgb(0, 2, 99) 100%
+  );
+  --page-text-color: #ff91d1;
+
+  /* Nova variável para a fonte Smooch Sans */
+  --custom-font: 'Smooch Sans', sans-serif;
+}
+
+/* Importação da nova fonte */
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+
+/* ------------------------------------------- */
+/* ESTILOS GERAIS DA PÁGINA (BACKGROUND ESCURO)*/
+/* ------------------------------------------- */
+
+body {
+  /* Fundo escuro conforme solicitado */
+  background: var(--page-background);
+  /* Cor clara do texto conforme solicitado */
+  color: var(--page-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  min-height: 100vh;
+  /* Aplicação da nova fonte */
+  font-family: var(--custom-font);
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+/* Estilização do CARD de Navegação */
+.card {
+  background-color: rgb(1, 0, 39); /* Fundo escuro para o card de navegação */
+  color: var(--page-text-color);
+  border: 1px solid var(--page-text-color);
+}
+.card-header,
+.card-title {
+  color: var(--page-text-color) !important;
+}
+.btn-primary {
+  background-color: var(--page-text-color);
+  border-color: var(--page-text-color);
+  color: rgb(1, 0, 39);
+  font-weight: 900;
+}
+
+/* ------------------------------------------- */
+/* ESTILOS DOS SLIDES (BACKGROUND CLARO)       */
+/* ------------------------------------------- */
+
+/* Contêiner do Slide com dimensões fixas (padrão de apresentação) */
+.slide-container {
+  width: 1280px;
+  height: 720px;
+  background-color: #ffffff; /* Fundo do slide mantido CLARO */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra mais escura para contraste */
+  margin-bottom: 40px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  break-after: page;
+}
+
+/* Efeitos de Fundo Customizados (Círculos) - Mantidos para o slide */
+.slide-container::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 70%
+  );
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.slide-container::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.1) 0%,
+    rgba(168, 85, 247, 0) 70%
+  );
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.slide-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilo para Título com Gradiente */
+.gradient-text {
+  font-family: var(--custom-font);
+  font-weight: 900;
+  background: var(--bs-blue-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Estilo para Título Principal dos Slides */
+.slide-title {
+  font-size: 54px;
+  font-family: var(--custom-font);
+  font-weight: 700;
+  color: #1e293b; /* Cor escura para contrastar com o fundo branco do slide */
+  border-bottom: 4px solid var(--bs-gray-300);
+}
+
+/* Cor do texto descritivo do slide 1 (substitui .text-secondary) */
+.slide-text-contrast {
+    color: #475569 !important; /* Cor mais escura para contraste */
+}
+
+/* Estilo para Símbolos de Operação */
+.symbol {
+  font-family: var(--custom-font);
+  font-weight: 900;
+  color: #9333ea;
+  font-size: 28px;
+}
+
+/* Estilo para Itens da Lista (Bala customizada) */
+.custom-list {
+  list-style: none;
+  padding: 0;
+}
+.custom-list li {
+  font-size: 28px;
+  padding-left: 35px;
+  position: relative;
+  margin-bottom: 16px;
+  font-weight: 500;
+  color: #1e293b; /* Cor escura para o texto da lista no slide */
+}
+.custom-list li::before {
+  content: '•';
+  color: var(--bs-blue-start);
+  font-size: 40px;
+  position: absolute;
+  left: 0;
+  top: -8px;
+}
+
+/* Estilo para Parágrafos 'lead' nos slides */
+.lead {
+  font-size: 30px;
+  font-weight: 400;
+  color: #1e293b; /* Cor escura para o texto principal do slide */
+}
+
+/* Layout de Imagem (Mantido) */
+.image-wrapper {
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.generated-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Placeholder styling (mantido) */
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Layout redondo específico para o slide 4 (Mantido) */
+.rounded-image-layout .image-wrapper {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border: 8px solid #f8fafc;
+}
+
+.rounded-image-layout .image-wrapper .generated-image {
+  object-fit: cover;
+}
+
+/* Divisor customizado para o slide título (Mantido) */
+.custom-divider {
+  margin-top: 40px;
+  width: 100px;
+  height: 8px;
+  background: var(--bs-blue-gradient);
+  border-radius: 4px;
+}
+
+/* Referências do Slide */
+.references-list li {
+  border-left: 5px solid var(--bs-purple-end);
+  padding-left: 20px;
+  font-size: 24px;
+  color: #1e293b; /* Cor escura para o texto da referência no slide */
+}
+.references-list li::before {
+  content: '';
+}
+
+/* ------------------------------------------- */
+/* ESTILOS DO TEXTO EXTRA (ABAixo do Carrossel)*/
+/* ------------------------------------------- */
+
+.page-text {
+  background-color: rgb(1, 0, 39); /* Fundo escuro para o bloco de texto */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  color: var(--page-text-color);
+  font-weight: 400;
+  width: 1280px; /* Alinhar com a largura do slide */
+}
+.page-text h2 {
+  color: var(--page-text-color);
+  font-weight: 700;
+  border-bottom: 2px solid var(--page-text-color);
+  padding-bottom: 10px;
+  margin-top: 40px;
+}
+.page-text p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.page-text ul,
+.page-text ol {
+  padding-left: 25px;
+}
+.page-text li {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.page-text em {
+  color: #ffc4e7; /* Cor de destaque para itálicos */
+}
+
+/* ------------------------------------------- */
+/* CONFIGURAÇÕES DE IMPRESSÃO                  */
+/* ------------------------------------------- */
+
+@media print {
+  body {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    color: #000000 !important; /* Mudar cor do texto para preto na impressão */
+  }
+  .slide-container {
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0;
+    break-after: page;
+  }
+  .slide-container::before,
+  .slide-container::after {
+    content: none;
+  }
+  .card,
+  .page-text {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+    box-shadow: none !important;
+  }
+  .card-header,
+  .card-title,
+  .page-text h2,
+  .page-text h3 {
+    color: #000000 !important;
+  }
+  .btn-primary {
+    display: none;
+  }
+  .lead, .custom-list li, .references-list li {
+      color: #000000 !important;
+  }
+}
