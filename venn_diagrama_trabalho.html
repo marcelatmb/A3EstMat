@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora de Diagrama de Venn</title>
+    <title>VennGenerator4000</title>
+    <link rel="icon" href="assets/LOGOTIPO.webp" type="webp" />
+
     <link href="css\venn_diagrama_trabalho.css" rel="stylesheet" />
     <!-- Importando as bibliotecas necessárias -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -15,8 +17,8 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <div style="font-size: 3rem; color: #06aaaa">Inserir Elementos</div>
-      <p style="font-size: 1rem; color: #06aaaa">
+      <div class="gradient-text">Inserir Elementos</div>
+      <p style="font-size: 1rem; color: #dddfff; font-family: sans-serif">
         Insira os elementos separados por vírgula (ex: 1, 2, 3).
       </p>
 
@@ -47,14 +49,14 @@
 
     <!-- Área Principal -->
     <div class="main-content">
-      <h1 class="main-title">DIAGRAMA DE VENN</h1>
+      <h1 class="gradient-title" style="font-size: 100px">VennDiagram3000</h1>
       <div id="venn"></div>
     </div>
 
     <!-- Modal de Duplicatas -->
     <div id="duplicateModal" class="modal-overlay" style="display: none">
       <div class="modal-content">
-        <h3 style="color: #06aaaa; margin-top: 0">Atenção!</h3>
+        <h3 style="color: #2f3dff; margin-top: 0">Atenção!</h3>
         <p id="duplicateMessage" class="modal-text"></p>
         <button onclick="closeModal()">Entendi</button>
       </div>
@@ -200,6 +202,22 @@
         var div = d3.select("#venn");
         div.datum(sets).call(chart);
 
+        // tentando trocar cores das secçoes e ABC
+        // TROCAR CORES DO DIAGRAMA
+        div
+          .selectAll("path")
+          .style("fill", function (d, i) {
+            const cores = {
+              A: "#5148ff", //
+              B: "#ff3191", //
+              C: "#18ffb2", // amarelo pastel
+            };
+
+            // pega a cor do primeiro conjunto envolvido
+            return cores[d.sets[0]] || "#999";
+          })
+          .style("fill-opacity", 0.25);
+
         // contagem de itens por secção
         div.selectAll("text").each(function (d) {
           d3.select(this)
@@ -208,7 +226,7 @@
             .attr("x", d3.select(this).attr("x"))
             .attr("dy", "1.5em")
             .style("font-size", "0.8em")
-            .style("fill", "#666");
+            .style("fill", "#ffffff");
         });
 
         // tooltip
@@ -287,13 +305,13 @@
             // Mudar para 2 conjuntos
             isThreeSets = false;
             this.innerText = "+";
-            this.style.backgroundColor = "#06aaaa";
+            this.style.backgroundColor = "#2f3dff";
             setCContainer.style.display = "none";
           } else {
             // Mudar para 3 conjuntos
             isThreeSets = true;
             this.innerText = "-";
-            this.style.backgroundColor = "#06aaaa";
+            this.style.backgroundColor = "#2f3dff";
             setCContainer.style.display = "flex";
           }
           calculateAndDraw();

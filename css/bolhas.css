@@ -1,31 +1,38 @@
 ::selection {
-  background: #ff90bc; /* cor do highlight */
-  color: rgba(1, 0, 83, 0.39); /* cor do texto selecionado */
+  background: #a2ffb288; /* cor do highlight */
+  color: rgb(229, 215, 255); /* cor do texto selecionado */
+}
+
+.gradient-text {
+  font-family: var(--custom-font);
+  font-weight: 900;
+  background: linear-gradient(0deg, rgb(11, 2, 255) 0%, rgb(255, 255, 255) 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: +1;
+  left: 10%;
 }
 
 .title {
   position: absolute;
-  top: 10%;
-  left: 19%;
-  text-align: center;
-  color: hsl(0, 0%, 100%);
+  top: 30%;
+  left: 13%;
+  width: 26%;
+  color: rgb(216, 215, 255);
   font-family: "Smooch Sans", sans-serif;
   font-size: 30px;
-  background: rgb(13, 2, 59) 10%;
+  background: linear-gradient(0deg, rgb(73, 60, 255) 0%, rgb(1, 1, 29) 100%);
   border-radius: 45px;
   padding-left: 40px;
   padding-right: 40px;
 }
 
 .title:hover {
-  position: absolute;
-  top: 10%;
-  left: 19%;
-  text-align: center;
   font-family: "Smooch Sans", sans-serif;
-  opacity: 100%;
-  font-size: 30px;
   animation: color_uwu 3s infinite ease-in-out;
+  background: linear-gradient(0deg, rgb(53, 66, 255) 0%, rgb(8, 8, 49) 100%);
+  color: rgb(247, 251, 255);
+  border: #4c24ff 2px solid;
 }
 
 .bubble-container {
@@ -121,5 +128,17 @@
   100% {
     transform: translateY(-400px) scale(1.05); /* adjust height as needed */
     opacity: 0;
+  }
+}
+
+@keyframes color_uwu {
+  0% {
+    color: rgb(216, 215, 255);
+  }
+  50% {
+    color: rgb(108, 142, 255);
+  }
+  100% {
+    color: rgb(217, 216, 255);
   }
 }

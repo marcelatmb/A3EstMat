@@ -1,180 +1,230 @@
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-        
-        /* Estilo da Barra Lateral (Menu) */
-        .sidebar {
-            width: 300px;
-            background-image: url('https://i.pinimg.com/736x/4f/dc/2b/4fdc2b05b4fd8f6c1509ccd379f315df.jpg');
-            background-size: cover;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 54, 58, 0.1);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            overflow-y: auto;
-        }
+::selection {
+  background: #552eff88; /* cor do highlight */
+  color: rgb(229, 215, 255); /* cor do texto selecionado */
+}
 
-        .sidebar h2 {
-            margin-top: 0;
-            color: #06aaaa;
-            font-size: 1.2rem;
-        }
+#venn text {
+  fill: #ffffff !important;
+  font-weight: 900;
+}
 
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
+.gradient-text {
+  font-family: var(--custom-font);
+  font-weight: 900;
+  background: linear-gradient(
+    95deg,
+    #f8f8ff 0%,
+    rgb(135, 132, 229) 60%,
+    rgb(83, 52, 255) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: +1;
+  left: 10%;
+  font-size: 50px;
+  line-height: 80%;
+}
 
-        .input-group label {
-            font-weight: bold;
-            color: #06aaaa;
-            
-        }
+.gradient-title {
+  font-family: var(--custom-font);
+  font-weight: 900;
+  background: linear-gradient(
+    140deg,
+    #0f0757 0%,
+    rgb(83, 0, 236) 26%,
+    rgb(228, 226, 255) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: +1;
+  left: 10%;
+  font-size: 50px;
+}
 
-        .input-group textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-            min-height: 60px;
-            font-family: monospace;
-        }
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
-        button {
-            padding: 12px;
-            background-color: #06aaaa;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.2s;
-        }
+/* Estilo da Barra Lateral (Menu) */
+.sidebar {
+  width: 300px;
+  background: linear-gradient(
+    170deg,
+    rgb(12, 5, 224) 0%,
+    rgb(3, 0, 104) 30%,
+    rgb(0, 0, 0) 75%
+  );
+  background-size: cover;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 54, 58, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
 
-        button:hover {
-            background-color: #000000;
-            color: rgb(57, 255, 196);
-        }
+.sidebar h2 {
+  margin-top: 0;
+  color: #c0c3ff;
+  font-size: 1.2rem;
+}
 
-        #toggleBtn {
-            background-color: #06aaaa;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            align-self: center;
-        }
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-        #toggleBtn:hover {
-            background-color: #000000;
-        }
+.input-group label {
+  font-weight: bold;
+  color: #c0c3ff;
+}
 
-        /* Área Principal do Diagrama */
-        .main-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column; /* Changed to column to stack title and diagram */
-            justify-content: center;
-            align-items: center;
-            background-color: #ffeeee;
-            position: relative;
-        }
+.input-group textarea {
+  padding: 10px;
+  border: 1px solid #2f3dff;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 60px;
+  font-family: monospace;
+  background: linear-gradient(90deg, rgb(23, 20, 97) 0%, rgb(0, 5, 17) 90%);
+  color: rgb(186, 185, 255);
+  font-weight: 900px;
+}
 
-        .main-title {
-            color: #06aaaa;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+button {
+  padding: 12px;
+  background: linear-gradient(0deg, rgb(58, 51, 255) 0%, rgb(3, 17, 56) 90%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
 
-        #venn {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        /* Tooltip customizado */
-        .venntooltip {
-            position: absolute;
-            text-align: center;
-            width: 128px;
-            height: 24px;
-            background: #333;
-            color: #ddd;
-            padding: 2px;
-            border: 0px;
-            border-radius: 8px;
-            opacity: 0;
-            pointer-events: none;
-        }
+button:hover {
+  background-color: #2f3dff;
+  color: white;
+}
 
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+#toggleBtn {
+  background-color: #2f3dff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  align-self: center;
+}
 
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            text-align: center;
-        }
+#toggleBtn:hover {
+  background-color: #000000;
+}
 
-        .modal-text {
-            color: #06aaaa; /* Blue color for warning */
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
+/* Área Principal do Diagrama */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Changed to column to stack title and diagram */
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, rgb(31, 0, 145) 0%, rgb(0, 14, 85) 20%);
+  position: relative;
+}
 
-        #results {
-            color: #06aaaa;
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-top: 20px;
-            font-size: 0.9rem;
-            display: none; /* Hidden by default */
-        }
+.main-title {
+  color: #2f3dff;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-        .back-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            color: #06aaaa;
-            opacity: 0.2;
-            font-size: 3rem;
-            text-decoration: none;
-            z-index: 2000;
-            transition: transform 0.2s;
-        }
+#venn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .back-btn:hover {
-            transform: scale(1.1);
-            color: #06aaaa;
-            opacity: 1;
-        }
+/* Tooltip customizado */
+.venntooltip {
+  position: absolute;
+  text-align: center;
+  width: 128px;
+  height: 24px;
+  background: #02074b;
+  color: #ddd;
+  padding: 2px;
+  border: 0px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-text {
+  color: #2f3dff; /* Blue color for warning */
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+#results {
+  color: #bbc0ff;
+  background: linear-gradient(0deg, rgb(1, 0, 39) 0%, rgb(0, 2, 99) 100%);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  font-size: 0.9rem;
+  display: none; /* Hidden by default */
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: #4828ff;
+  opacity: 1;
+  font-size: 3rem;
+  text-decoration: none;
+  z-index: 2000;
+  transition: transform 0.2s;
+}
+
+.back-btn:hover {
+  transform: scale(1.1);
+  color: #ffffff;
+  opacity: 1;
+}

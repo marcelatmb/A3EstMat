@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=], initial-scale=1.0" />
-    <title>Projeto uwu</title>
+    <title>VennGenerator 4000</title>
+    <link rel="icon" href="assets/LOGOTIPO.webp" type="webp">
     <link rel="stylesheet" href="css\style.css" />
     <link rel="stylesheet" href="css\bolhas.css" />
     <script
@@ -14,9 +15,38 @@
     ></script>
   </head>
   <body>
+    <div class="header">
+      <img  style="width: 70px; position: absolute; left: 2%; top: 2%;" src="assets\LOGOTIPO.webp">
+    </div>
+    <div class="botões">
+      <a class="botao" 
+      style="right: 10%;top: 2%;"
+      href="mailto:alicebauler@gmail.com"
+      target="_blank" rel="noopener noreferrer">
+      <h1> ♡Contato♡ </h1>
+    </a>
+
+      <a class="botao"
+      style="right: 2%; top: 2%;"
+      href="https://github.com/marcelatmb/A3EstMat"
+      target="_blank" rel="noopener noreferrer">
+      <h1> ♡Github♡ </h1>
+      </a>
+    
+      <a class="botao"
+      style=" right: 18.5%; top: 2%;"
+      href="https://www.youtube.com/watch?v=f7o7PCSGU_0"
+      target="_blank" rel="noopener noreferrer">
+      <h1> ♡PlanoB♡ </h1>
+      </a>
+    </div>
+
+    <div class="gradient-text" style="position: absolute; font-size: 130px;line-height: 70%;"><h4>Venn<br>Generator4000</h4></div>
+    
     <div class="frame">
-      <a href="venn_diagrama_trabalho.html" class="link-inteiro">
+
       <div class="box blue">
+        <a href="venn_diagrama_trabalho.html" class="link-inteiro">
         <div class="content">
           <p>
             <br><br>
@@ -30,12 +60,12 @@
               loop
               autoplay></dotlottie-wc>
           </p>
-        </div>
+        </div></a>
       </div>
-      </a>
 
-      <a href="https://bing.com" class="link-inteiro">
+
       <div class="box red">
+        <a href="slides_tutorial.html" class="link-inteiro">
         <div class="content">
           <p>
             Aqui você vai encontrar slides explicativos sobre como funciona nosso lindo, bonito, incrível, cheiroso e PROVAVELMENTE FUNCIONAL projeto de Estruturas Matemáticas!!!! ENTRA LOGO PRA VER VAI
@@ -47,13 +77,12 @@
             loop
             autoplay
           ></dotlottie-wc>
-        </div>
+        </div></a>
       </div>
-      </a>
 
 
-      <a href="slides_diagram_venn.html" class="link-inteiro">
       <div class="box green">
+        <a href="slides_diagram_venn.html" class="link-inteiro">
         <div class="content">
           <p>
             Aqui você vai encontrar slides explicativos muito menos interessantes sobre como NÃO funciona nosso projeto de Estruturas Matemáticas!!!! Ele explica mais sobre a lógica por trás do projeto e tal... MAS AINDA ASSIM É BOM DEMAIS, ENTRA AÍ
@@ -71,27 +100,22 @@
             autoplay
           ></dotlottie-wc>
         </div>
-      </div>
       </a>
+      </div>
 
 
     </div>
-    <div class="bubble-container">
-      <div class="bubble b1"></div>
-      <div class="bubble b2"></div>
-      <div class="bubble b3"></div>
-      <div class="bubble b4"></div>
-      <div class="bubble b1"></div>
-    </div>
+
     <div class="title">
       <h1>   Bem Vindo ao nosso Projeto da Uc de Estruturas Matemáticas!   </h1>
       <h3>Passe o mouse sobre o diagrama de Venn Para saber mais</h3>
     </div>
     <div class="footer">
-      <p>Créditos aos estudantes da Unifacs</p>
-      <p>uwu</p>
+      <p>mudandocompletamenteolayoutnodiadaapresentação@ todos os direitos reservados quem piratear leva chumbo</p>
     </div>
   </body>
+
+
   <script>
     const boxes = document.querySelectorAll(".box");
 
@@ -107,7 +131,7 @@
 
     const contents = document.querySelectorAll(".content");
 
-    xerecas.forEach((content) => {
+    contents.forEach((content) => {
       content.addEventListener("mouseenter", () => {
         content.classList.add("hovered");
       });
@@ -116,5 +140,6 @@
         content.classList.remove("hovered");
       });
     });
+
   </script>
 </html>
