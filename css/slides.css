@@ -15,11 +15,11 @@
   --page-text-color: #ff91d1;
 
   /* Nova variável para a fonte Smooch Sans */
-  --custom-font: 'Smooch Sans', sans-serif;
+  --custom-font: "Smooch Sans", sans-serif;
 }
 
 /* Importação da nova fonte */
-@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap");
 
 /* ------------------------------------------- */
 /* ESTILOS GERAIS DA PÁGINA (BACKGROUND ESCURO)*/
@@ -78,7 +78,7 @@ body {
 
 /* Efeitos de Fundo Customizados (Círculos) - Mantidos para o slide */
 .slide-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -100px;
   right: -100px;
@@ -94,7 +94,7 @@ body {
 }
 
 .slide-container::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -100px;
   left: -100px;
@@ -134,7 +134,7 @@ body {
 
 /* Cor do texto descritivo do slide 1 (substitui .text-secondary) */
 .slide-text-contrast {
-    color: #475569 !important; /* Cor mais escura para contraste */
+  color: #475569 !important; /* Cor mais escura para contraste */
 }
 
 /* Estilo para Símbolos de Operação */
@@ -159,7 +159,7 @@ body {
   color: #1e293b; /* Cor escura para o texto da lista no slide */
 }
 .custom-list li::before {
-  content: '•';
+  content: "•";
   color: var(--bs-blue-start);
   font-size: 40px;
   position: absolute;
@@ -232,7 +232,7 @@ body {
   color: #1e293b; /* Cor escura para o texto da referência no slide */
 }
 .references-list li::before {
-  content: '';
+  content: "";
 }
 
 /* ------------------------------------------- */
@@ -309,7 +309,9 @@ body {
   .btn-primary {
     display: none;
   }
-  .lead, .custom-list li, .references-list li {
-      color: #000000 !important;
+  .lead,
+  .custom-list li,
+  .references-list li {
+    color: #000000 !important;
   }
 }
