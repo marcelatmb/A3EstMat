@@ -1,220 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Diagrama de Venn</title>
-     <link href="stylesheet.css" rel="stylesheet">
+    <link href="css\stylesheet.css" rel="stylesheet" />
     <!-- Importando as bibliotecas necessárias -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/venn.min.js"></script>
-    <link href="stylesheet.css" rel="stylesheet">
-</head>
-<body>
+    <link href="css\stylesheet.css" rel="stylesheet" />
+  </head>
+  <body>
     <a href="index.html" class="back-btn" title="Voltar ao Início">&#8617;</a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <div style="font-size: 3rem; color: #06aaaa;">Inserir Elementos</div>
-        <p style="font-size: 1rem; color: #06aaaa;">Insira os elementos separados por vírgula (ex: 1, 2, 3).</p>
+      <div style="font-size: 3rem; color: #06aaaa">Inserir Elementos</div>
+      <p style="font-size: 1rem; color: #06aaaa">
+        Insira os elementos separados por vírgula (ex: 1, 2, 3).
+      </p>
 
-        <div class="input-group">
-            <label for="setA">Conjunto A:</label>
-            <textarea id="setA" placeholder="Ex: 1, 2, 3, 4"></textarea>
-        </div>
+      <div class="input-group">
+        <label for="setA">Conjunto A:</label>
+        <textarea id="setA" placeholder="Ex: 1, 2, 3, 4"></textarea>
+      </div>
 
-        <div class="input-group">
-            <label for="setB">Conjunto B:</label>
-            <textarea id="setB" placeholder="Ex: 3, 4, 5, 6"></textarea>
-        </div>
+      <div class="input-group">
+        <label for="setB">Conjunto B:</label>
+        <textarea id="setB" placeholder="Ex: 3, 4, 5, 6"></textarea>
+      </div>
 
-        <!--Toggle -->
-        <button id="toggleBtn" title="Adicionar/Remover Conjunto C">+</button>
+      <!--Toggle -->
+      <button id="toggleBtn" title="Adicionar/Remover Conjunto C">+</button>
 
-        <div class="input-group" id="setCContainer" style="display: none;">
-            <label for="setC">Conjunto C:</label>
-            <textarea id="setC" placeholder="Ex: 5, 6, 7, 8"></textarea>
-        </div>
+      <div class="input-group" id="setCContainer" style="display: none">
+        <label for="setC">Conjunto C:</label>
+        <textarea id="setC" placeholder="Ex: 5, 6, 7, 8"></textarea>
+      </div>
 
-        <button id="calcBtn">Calcular e Desenhar</button>
-        
-        <div id="results">
-            <!-- Resultados calculados aparecerão aqui -->
-        </div>
+      <button id="calcBtn">Calcular e Desenhar</button>
+
+      <div id="results">
+        <!-- Resultados calculados aparecerão aqui -->
+      </div>
     </div>
 
     <!-- Área Principal -->
     <div class="main-content">
-        <h1 class="main-title">DIAGRAMA DE VENN</h1>
-        <div id="venn"></div>
+      <h1 class="main-title">DIAGRAMA DE VENN</h1>
+      <div id="venn"></div>
     </div>
 
     <!-- Modal de Duplicatas -->
-    <div id="duplicateModal" class="modal-overlay" style="display: none;">
-        <div class="modal-content">
-            <h3 style="color: #06aaaa; margin-top: 0;">Atenção!</h3>
-            <p id="duplicateMessage" class="modal-text"></p>
-            <button onclick="closeModal()">Entendi</button>
-        </div>
+    <div id="duplicateModal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <h3 style="color: #06aaaa; margin-top: 0">Atenção!</h3>
+        <p id="duplicateMessage" class="modal-text"></p>
+        <button onclick="closeModal()">Entendi</button>
+      </div>
     </div>
 
     <script>
-        // Estado inicial
-        let isThreeSets = false;
+      // Estado inicial
+      let isThreeSets = false;
 
-        // Função para fechar o modal
-        function closeModal() {
-            document.getElementById('duplicateModal').style.display = 'none';
+      // Função para fechar o modal
+      function closeModal() {
+        document.getElementById("duplicateModal").style.display = "none";
+      }
+
+      // Função auxiliar para parsear o input (string -> array de strings limpas)
+      function parseInput(str) {
+        if (!str || str.trim() === "") return [];
+        return str
+          .split(",")
+          .map((s) => s.trim())
+          .filter((s) => s !== "");
+      }
+
+      // Função para calcular interseção entre arrays
+      function intersection(arr1, arr2) {
+        return arr1.filter((value) => arr2.includes(value));
+      }
+
+      function calculateAndDraw() {
+        // Obter valores dos inputs
+        const rawA = document.getElementById("setA").value;
+        const rawB = document.getElementById("setB").value;
+        // Se não estivermos usando 3 conjuntos, ignoramos o input C
+        const rawC = isThreeSets ? document.getElementById("setC").value : "";
+
+        // Converter para arrays + remover dupe
+        let setA = parseInput(rawA);
+        let setB = parseInput(rawB);
+        let setC = parseInput(rawC);
+
+        const setsWithDuplicates = [];
+
+        // limpar duplicatas e registrar
+        function removeDuplicates(arr, setName) {
+          const unique = [...new Set(arr)];
+          if (unique.length < arr.length) {
+            setsWithDuplicates.push(setName);
+          }
+          return unique;
         }
 
-        // Função auxiliar para parsear o input (string -> array de strings limpas)
-        function parseInput(str) {
-            if (!str || str.trim() === "") return [];
-            return str.split(',')
-                .map(s => s.trim())
-                .filter(s => s !== "");
+        setA = removeDuplicates(setA, "A");
+        setB = removeDuplicates(setB, "B");
+        if (isThreeSets) {
+          setC = removeDuplicates(setC, "C");
         }
 
-        // Função para calcular interseção entre arrays
-        function intersection(arr1, arr2) {
-            return arr1.filter(value => arr2.includes(value));
+        if (setsWithDuplicates.length > 0) {
+          const message = `Valores duplicados foram removidos dos conjuntos ${setsWithDuplicates.join(
+            ", "
+          )}.`;
+          document.getElementById("duplicateMessage").innerText = message;
+          document.getElementById("duplicateModal").style.display = "flex";
         }
 
-        function calculateAndDraw() {
-            // Obter valores dos inputs
-            const rawA = document.getElementById('setA').value;
-            const rawB = document.getElementById('setB').value;
-            // Se não estivermos usando 3 conjuntos, ignoramos o input C
-            const rawC = isThreeSets ? document.getElementById('setC').value : "";
+        // interseções e exclusões
+        // A inter B
+        const AB = intersection(setA, setB);
+        // A inter C
+        const AC = intersection(setA, setC);
+        // B inter C
+        const BC = intersection(setB, setC);
+        // A inter B inter C
+        const ABC = intersection(AB, setC);
 
-            // Converter para arrays + remover dupe
-            let setA = parseInput(rawA);
-            let setB = parseInput(rawB);
-            let setC = parseInput(rawC);
+        // Calcular contagens exclusivas para exibição
+        // A = A - B - C
+        const onlyA = setA.filter(
+          (x) => !setB.includes(x) && !setC.includes(x)
+        ).length;
+        // B = B - A - C
+        const onlyB = setB.filter(
+          (x) => !setA.includes(x) && !setC.includes(x)
+        ).length;
+        // C = C - A - B
+        const onlyC = setC.filter(
+          (x) => !setA.includes(x) && !setB.includes(x)
+        ).length;
 
-            const setsWithDuplicates = [];
+        // AB = (A inter B) - C
+        const onlyAB = AB.filter((x) => !setC.includes(x)).length;
+        // AC = (A inter C) - B
+        const onlyAC = AC.filter((x) => !setB.includes(x)).length;
+        // BC = (B inter C) - A
+        const onlyBC = BC.filter((x) => !setA.includes(x)).length;
 
-            // limpar duplicatas e registrar
-            function removeDuplicates(arr, setName) {
-                const unique = [...new Set(arr)];
-                if (unique.length < arr.length) {
-                    setsWithDuplicates.push(setName);
-                }
-                return unique;
-            }
+        // ABC = A inter B inter C
+        const countABC = ABC.length;
 
-            setA = removeDuplicates(setA, 'A');
-            setB = removeDuplicates(setB, 'B');
-            if (isThreeSets) {
-                setC = removeDuplicates(setC, 'C');
-            }
+        // 4. Montar dados para o venn.js
+        let sets = [
+          { sets: ["A"], size: setA.length, label: "A", displaySize: onlyA },
+          { sets: ["B"], size: setB.length, label: "B", displaySize: onlyB },
+          { sets: ["C"], size: setC.length, label: "C", displaySize: onlyC },
+          {
+            sets: ["A", "B"],
+            size: AB.length,
+            label: "A∩B",
+            displaySize: onlyAB,
+          },
+          {
+            sets: ["A", "C"],
+            size: AC.length,
+            label: "A∩C",
+            displaySize: onlyAC,
+          },
+          {
+            sets: ["B", "C"],
+            size: BC.length,
+            label: "B∩C",
+            displaySize: onlyBC,
+          },
+          {
+            sets: ["A", "B", "C"],
+            size: ABC.length,
+            label: "A∩B∩C",
+            displaySize: countABC,
+          },
+        ];
 
-            if (setsWithDuplicates.length > 0) {
-                const message = `Valores duplicados foram removidos dos conjuntos ${setsWithDuplicates.join(', ')}.`;
-                document.getElementById('duplicateMessage').innerText = message;
-                document.getElementById('duplicateModal').style.display = 'flex';
-            }
+        // Se for apenas 2 conjuntos, filtra C
+        if (!isThreeSets) {
+          sets = sets.filter((item) => !item.sets.includes("C"));
+        }
 
-            // interseções e exclusões
-            // A inter B
-            const AB = intersection(setA, setB);
-            // A inter C
-            const AC = intersection(setA, setC);
-            // B inter C
-            const BC = intersection(setB, setC);
-            // A inter B inter C
-            const ABC = intersection(AB, setC);
+        // Filtrar conjuntos com tamanho 0
+        sets = sets.filter((s) => s.size > 0);
 
-            // Calcular contagens exclusivas para exibição
-            // A = A - B - C
-            const onlyA = setA.filter(x => !setB.includes(x) && !setC.includes(x)).length;
-            // B = B - A - C
-            const onlyB = setB.filter(x => !setA.includes(x) && !setC.includes(x)).length;
-            // C = C - A - B
-            const onlyC = setC.filter(x => !setA.includes(x) && !setB.includes(x)).length;
-            
-            // AB = (A inter B) - C
-            const onlyAB = AB.filter(x => !setC.includes(x)).length;
-            // AC = (A inter C) - B
-            const onlyAC = AC.filter(x => !setB.includes(x)).length;
-            // BC = (B inter C) - A
-            const onlyBC = BC.filter(x => !setA.includes(x)).length;
-            
-            // ABC = A inter B inter C
-            const countABC = ABC.length;
+        // 5. Desenhar Diagrama
+        d3.select("#venn").html(""); // Limpar
+        var chart = venn.VennDiagram().width(900).height(700);
 
-            // 4. Montar dados para o venn.js
-            let sets = [
-                { sets: ['A'], size: setA.length, label: 'A', displaySize: onlyA },
-                { sets: ['B'], size: setB.length, label: 'B', displaySize: onlyB },
-                { sets: ['C'], size: setC.length, label: 'C', displaySize: onlyC },
-                { sets: ['A', 'B'], size: AB.length, label: 'A∩B', displaySize: onlyAB },
-                { sets: ['A', 'C'], size: AC.length, label: 'A∩C', displaySize: onlyAC },
-                { sets: ['B', 'C'], size: BC.length, label: 'B∩C', displaySize: onlyBC },
-                { sets: ['A', 'B', 'C'], size: ABC.length, label: 'A∩B∩C', displaySize: countABC }
-            ];
+        var div = d3.select("#venn");
+        div.datum(sets).call(chart);
 
-            // Se for apenas 2 conjuntos, filtra C
-            if (!isThreeSets) {
-                sets = sets.filter(item => !item.sets.includes('C'));
-            }
+        // contagem de itens por secção
+        div.selectAll("text").each(function (d) {
+          d3.select(this)
+            .append("tspan")
+            .text(d.displaySize)
+            .attr("x", d3.select(this).attr("x"))
+            .attr("dy", "1.5em")
+            .style("font-size", "0.8em")
+            .style("fill", "#666");
+        });
 
-            // Filtrar conjuntos com tamanho 0
-            sets = sets.filter(s => s.size > 0);
+        // tooltip
+        var tooltip = d3
+          .select("body")
+          .append("div")
+          .attr("class", "venntooltip");
 
-            // 5. Desenhar Diagrama
-            d3.select("#venn").html(""); // Limpar
-            var chart = venn.VennDiagram()
-                .width(900)
-                .height(700);
-            
-            var div = d3.select("#venn");
-            div.datum(sets).call(chart);
+        div
+          .selectAll("g")
+          .on("mouseover", function (event, d) {
+            venn.sortAreas(div, d);
+            d3.select(this).select("path").style("fill-opacity", 0.5);
+            tooltip.transition().duration(400).style("opacity", 0.9);
+            tooltip.text(d.displaySize + " exclusivos");
+            tooltip
+              .style("left", event.pageX + "px")
+              .style("top", event.pageY - 28 + "px");
+          })
+          .on("mouseout", function (event, d) {
+            d3.select(this).select("path").style("fill-opacity", 0.25);
+            tooltip.transition().duration(400).style("opacity", 0);
+          });
 
-            // contagem de itens por secção
-            div.selectAll("text").each(function(d) {
-                d3.select(this).append("tspan")
-                  .text(d.displaySize)
-                  .attr("x", d3.select(this).attr("x"))
-                  .attr("dy", "1.5em")
-                  .style("font-size", "0.8em")
-                  .style("fill", "#666");
-            });
+        // resultados textuais
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.style.display = "block"; // Show results container
 
-            // tooltip
-            var tooltip = d3.select("body").append("div")
-                .attr("class", "venntooltip");
-
-            div.selectAll("g")
-                .on("mouseover", function(event, d) {
-                    venn.sortAreas(div, d);
-                    d3.select(this).select("path").style("fill-opacity", .5);
-                    tooltip.transition().duration(400).style("opacity", .9);
-                    tooltip.text(d.displaySize + " exclusivos");
-                    tooltip.style("left", (event.pageX) + "px")
-                           .style("top", (event.pageY - 28) + "px");
-                })
-                .on("mouseout", function(event, d) {
-                    d3.select(this).select("path").style("fill-opacity", .25);
-                    tooltip.transition().duration(400).style("opacity", 0);
-                });
-            
-            // resultados textuais
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.style.display = 'block'; // Show results container
-            
-            let setsHtml = `
+        let setsHtml = `
                 <strong>Conjuntos Processados (sem duplicatas):</strong><br>
-                A = { ${setA.join(', ')} }<br>
-                B = { ${setB.join(', ')} }<br>
+                A = { ${setA.join(", ")} }<br>
+                B = { ${setB.join(", ")} }<br>
             `;
-            if (isThreeSets) {
-                setsHtml += `C = { ${setC.join(', ')} }<br>`;
-            }
-            setsHtml += `<br>`;
+        if (isThreeSets) {
+          setsHtml += `C = { ${setC.join(", ")} }<br>`;
+        }
+        setsHtml += `<br>`;
 
-            if (isThreeSets) {
-                resultsDiv.innerHTML = setsHtml + `
+        if (isThreeSets) {
+          resultsDiv.innerHTML =
+            setsHtml +
+            `
                     <strong>Contagens Exclusivas:</strong><br>
                     Apenas A: ${onlyA}<br>
                     Apenas B: ${onlyB}<br>
@@ -224,45 +260,49 @@
                     Apenas B∩C: ${onlyBC}<br>
                     A∩B∩C: ${countABC}
                 `;
-            } else {
-                resultsDiv.innerHTML = setsHtml + `
+        } else {
+          resultsDiv.innerHTML =
+            setsHtml +
+            `
                     <strong>Contagens Exclusivas:</strong><br>
                     Apenas A: ${onlyA}<br>
                     Apenas B: ${onlyB}<br>
                     A∩B: ${onlyAB}
                 `;
-            }
         }
+      }
 
-        // Lógica do Toggle
-        document.getElementById('toggleBtn').addEventListener('click', function() {
-            const setCContainer = document.getElementById('setCContainer');
-            if (isThreeSets) {
-                // Mudar para 2 conjuntos
-                isThreeSets = false;
-                this.innerText = "+";
-                this.style.backgroundColor = "#06aaaa";
-                setCContainer.style.display = "none";
-            } else {
-                // Mudar para 3 conjuntos
-                isThreeSets = true;
-                this.innerText = "-";
-                this.style.backgroundColor = "#06aaaa";
-                setCContainer.style.display = "flex";
-            }
-            calculateAndDraw();
+      // Lógica do Toggle
+      document
+        .getElementById("toggleBtn")
+        .addEventListener("click", function () {
+          const setCContainer = document.getElementById("setCContainer");
+          if (isThreeSets) {
+            // Mudar para 2 conjuntos
+            isThreeSets = false;
+            this.innerText = "+";
+            this.style.backgroundColor = "#06aaaa";
+            setCContainer.style.display = "none";
+          } else {
+            // Mudar para 3 conjuntos
+            isThreeSets = true;
+            this.innerText = "-";
+            this.style.backgroundColor = "#06aaaa";
+            setCContainer.style.display = "flex";
+          }
+          calculateAndDraw();
         });
 
-        document.getElementById('calcBtn').addEventListener('click', function() {
-            calculateAndDraw();
-            // Limpar formulário dps que gerar
-            document.getElementById('setA').value = "";
-            document.getElementById('setB').value = "";
-            document.getElementById('setC').value = "";
-        });
-        
-        // Desenhar inicial (vazio)
-        // calculateAndDraw(); 
+      document.getElementById("calcBtn").addEventListener("click", function () {
+        calculateAndDraw();
+        // Limpar formulário dps que gerar
+        document.getElementById("setA").value = "";
+        document.getElementById("setB").value = "";
+        document.getElementById("setC").value = "";
+      });
+
+      // Desenhar inicial (vazio)
+      // calculateAndDraw();
     </script>
-</body>
+  </body>
 </html>
