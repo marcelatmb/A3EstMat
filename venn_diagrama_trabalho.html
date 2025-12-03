@@ -241,9 +241,15 @@
                 <strong>Conjuntos Processados (sem duplicatas):</strong><br>
                 A = { ${setA.join(", ")} }<br>
                 B = { ${setB.join(", ")} }<br>
+                AB = { ${AB.join(", ")} }<br>
             `;
         if (isThreeSets) {
-          setsHtml += `C = { ${setC.join(", ")} }<br>`;
+          setsHtml += `
+          C = { ${setC.join(", ")} }<br>
+          AC = { ${AC.join(", ")} }<br>
+          BC = { ${BC.join(", ")} }<br>
+          ABC = { ${ABC.join(", ")} }<br>
+          `;
         }
         setsHtml += `<br>`;
 
